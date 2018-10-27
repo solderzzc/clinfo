@@ -24,7 +24,7 @@ HDR =	src/error.h \
 VPATH = src
 
 CFLAGS ?= -g -pedantic -Werror
-CFLAGS += -std=c99 -Wall -Wextra
+CFLAGS += -std=c99 -Wall -Wextra -I./include/
 
 SPARSE ?= sparse
 SPARSEFLAGS=-Wsparse-all -Wno-decl
@@ -40,8 +40,7 @@ MANDIR ?= $(PREFIX)/man
 MANMODE ?= 444
 
 # Common library includes
-LDLIBS = -lOpenCL -ldl
-
+LDLIBS = -L/system/vendor/lib64 -Wl,-rpath,/system/vendor/lib64 -lOpenCL -lcompiler_rt
 # OS-specific library includes
 LDLIBS_Darwin = -framework OpenCL
 LDLIBS_Darwin_exclude = -lOpenCL
