@@ -13,6 +13,11 @@ properties (e.g. 1.2 properties on 1.1 platforms).
 
     clinfo [options...]
 
+On RK3399 TVBox:
+```
+LD_LIBRARY_PATH=/system/lib64:/system/vendor/lib64/egl ./clinfo
+```
+
 Common used options are `-l` to show a synthetic summary of the
 available devices (without properties), and `-a`, to try and show
 properties even if `clinfo` would otherwise think they aren't supported

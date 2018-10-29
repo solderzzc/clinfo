@@ -40,7 +40,8 @@ MANDIR ?= $(PREFIX)/man
 MANMODE ?= 444
 
 # Common library includes
-LDLIBS = -L/system/vendor/lib64 -Wl,-rpath,/system/vendor/lib64 -lOpenCL -lcompiler_rt
+# LDLIBS = -L/system/vendor/lib64 -Wl,-rpath,/system/vendor/lib64 -lOpenCL -lcompiler_rt
+LDLIBS = -L/system/lib64 -L/system/vendor/lib64/egl -Wl,-rpath,/system/vendor/lib64/egl -lcrypto -lGLES_mali -lcompiler_rt
 # OS-specific library includes
 LDLIBS_Darwin = -framework OpenCL
 LDLIBS_Darwin_exclude = -lOpenCL
